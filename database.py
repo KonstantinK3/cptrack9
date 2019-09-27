@@ -55,6 +55,17 @@ def get_codes_from_base(days):
         ans_list.append((str(i[0]), i[1]))
     return ans_list
 
+def get_code_by_date(date):
+    data, connection = get_connect_codes()
+    stmt = select([data])
+
+    date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
+
+    stmt = stmt.where(data.columns.date == date)
+    ans = connection.execute(stmt).fetchall()
+
+    return ans[0][1]
+
 
 
 # #проверка, если ли город в таблице

@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
-import os
-from database import get_codes_from_base
+import os, json
+from database import get_codes_from_base, get_code_by_date
 
 app = Flask(__name__)
 
@@ -14,6 +14,21 @@ def get_codes():
     if request.method == 'GET':
         ans = get_codes_from_base(30)
         return jsonify(ans)
+
+@app.route('/tickets', methods=['POST'])
+def get_qr():
+    if request.method == 'POST':
+        name = request.args.get('name')
+        surname = request.args.get('surname')
+        passport = request.args.get('passport')
+        issueDate = passport = request.args.get('issueDate')
+        dueDate = passport = request.args.get('dueDate')
+        areas = request.args.get('areas')
+
+        code = get_code_by_date(issueDate)
+
+        return (str(code))
+
 
 
 

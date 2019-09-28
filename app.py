@@ -21,8 +21,8 @@ def get_hash(request):
         name = request.args.get('name')
         surname = request.args.get('surname')
         passport = request.args.get('passport')
-        issueDate = passport = request.args.get('issueDate')
-        dueDate = passport = request.args.get('dueDate')
+        issueDate = request.args.get('issueDate')
+        dueDate = request.args.get('dueDate')
         areas = request.args.get('areas')
 
         #получение кода из базы
@@ -30,6 +30,7 @@ def get_hash(request):
 
         #формирование строки для кодирования
         credentials_w_code = f"{name} {surname} {passport} {issueDate} {dueDate} {areas} {code}"
+
         hash = hashlib.sha1(credentials_w_code.encode()).hexdigest()
         credentials_w_hash = f"{name} {surname} {passport} {issueDate} {dueDate} {areas} {hash}"
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Покупка билетов для посещения туристических маршрутов Сочи</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">Покупка билетов для посещения туристических маршрутов Сочи</div>
+  
+              <div class="card-body">
+                <form action="https://cptrack9.herokuapp.com/qr">
+
+
+                  <strong>Имя:</strong>
+                  <input type="text" class="form-control" placeholder="Имя" name="name" />
+                  <strong>Фамилия:</strong>
+                  <input type="text" class="form-control" placeholder="Фамилия" name="surname" />
+                  <strong>Серия и Номер паспорта:</strong>
+                  <input type="text" class="form-control" placeholder="Формат: SSSSNNNNNN" name="passport" />
+                  <strong>Дата выхода на маршрут:</strong>
+                  <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="issueDate" />
+                  <strong>Дата возврата:</strong>
+                  <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="dueDate" />
+                  <strong>Зона посещения:</strong>
+                  <div class="form-check">
+                        <input class="form-check-input" type="radio" name="areas" id="exampleRadios1" value="1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                        Сочинский национальный парк
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="areas" id="exampleRadios2" value="2">
+                        <label class="form-check-label" for="exampleRadios2">
+                        Государственный Кавказский Биосферный заповедник
+                        </label>
+                      </div>
+                  <br>
+                  <button class="btn btn-success" type="submit">Перейти к оплате</button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </body>
+</html>

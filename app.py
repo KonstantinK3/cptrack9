@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 import os, json, hashlib, qrcode
 from database import get_codes_from_base, get_code_by_date
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'use /codes to get list of codes 30 days befoe and after'
+    return render_template("index.html")
 
 #возвращаем список кодов на 30 до текущей даты и 30 дней после
 @app.route('/codes', methods=['GET'])
